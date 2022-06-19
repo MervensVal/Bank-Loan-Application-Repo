@@ -8,12 +8,10 @@ namespace Bank_Loan_Application
 {
     interface IElegibilityCheck
     {
-        bool CheckAmountRequested(int loanAmount);
-        bool CheckAge(DateTime DOB);
-        bool CheckYearlyNetIncome(int incomeAmount, string howOften);
-        bool CheckCreditScore(int loanAmount, int creditScore);
-
-
-
+        void CheckAmountRequested(int loanAmount);
+        void CheckAge(DateTime DOB);
+        void CheckYearlyNetIncome(int incomeAmount, string howOften);
+        void CheckCreditScore(int loanAmount, int creditScore);
+        bool isQualifiedForLoan();
     }
 }

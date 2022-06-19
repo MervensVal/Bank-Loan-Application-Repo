@@ -16,8 +16,8 @@ namespace Bank_Loan_Application
             string hasExistingLoanStr;
             DateTime checkAge;
             int loanAmount;
-            string howOftenPaid = null;
-            int income = 0;
+            string howOftenPaid;
+            int income;
             int creditScore;
 
             hasExistingLoan = true;
@@ -58,11 +58,9 @@ namespace Bank_Loan_Application
             {
                 Console.WriteLine("Applicant Date of Birth: ");
                 checkAge = Convert.ToDateTime(Console.ReadLine());
-                userECheck.CheckAge(checkAge);
 
                 Console.WriteLine("Loan amount requested (Only $2000 - $30,000): ");
                 loanAmount = Convert.ToInt32(Console.ReadLine());
-                userECheck.CheckAmountRequested(loanAmount);
 
                 Console.WriteLine("How frequently does applicant get paid");
                 Console.WriteLine("Type M for Monthly | BW for Bi-Weekly | W for Weekly :  ");
@@ -70,7 +68,15 @@ namespace Bank_Loan_Application
 
                 Console.WriteLine("Income (based on frequency that was entered above):  ");
                 income = Convert.ToInt32(Console.ReadLine());
-            }   userECheck.CheckYearlyNetIncome(income, howOftenPaid);
+
+                Console.WriteLine("Credit score:  ");
+                creditScore = Convert.ToInt32(Console.ReadLine());
+
+                userECheck.CheckAge(checkAge);
+                userECheck.CheckAmountRequested(loanAmount);
+                userECheck.CheckYearlyNetIncome(income, howOftenPaid);
+                userECheck.CheckCreditScore(income, creditScore);
+            }   
         }
     }
 }
