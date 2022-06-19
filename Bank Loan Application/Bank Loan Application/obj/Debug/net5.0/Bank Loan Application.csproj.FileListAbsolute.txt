@@ -1,0 +1,16 @@
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\bin\Debug\net5.0\Bank Loan Application.exe
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\bin\Debug\net5.0\Bank Loan Application.deps.json
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\bin\Debug\net5.0\Bank Loan Application.runtimeconfig.json
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\bin\Debug\net5.0\Bank Loan Application.runtimeconfig.dev.json
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\bin\Debug\net5.0\Bank Loan Application.dll
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\bin\Debug\net5.0\ref\Bank Loan Application.dll
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\bin\Debug\net5.0\Bank Loan Application.pdb
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\obj\Debug\net5.0\Bank Loan Application.csproj.AssemblyReference.cache
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\obj\Debug\net5.0\Bank Loan Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\obj\Debug\net5.0\Bank Loan Application.AssemblyInfoInputs.cache
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\obj\Debug\net5.0\Bank Loan Application.AssemblyInfo.cs
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\obj\Debug\net5.0\Bank Loan Application.csproj.CoreCompileInputs.cache
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\obj\Debug\net5.0\Bank Loan Application.dll
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\obj\Debug\net5.0\ref\Bank Loan Application.dll
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\obj\Debug\net5.0\Bank Loan Application.pdb
+C:\Users\valme\source\repos\Bank-Loan-Application-Repo\Bank Loan Application\Bank Loan Application\obj\Debug\net5.0\Bank Loan Application.genruntimeconfig.cache
