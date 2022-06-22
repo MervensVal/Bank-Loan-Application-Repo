@@ -33,22 +33,85 @@ namespace Bank_Loan_Application
 
         public void CheckCreditScore(int loanAmount, int creditScore)
         {
-            throw new NotImplementedException();
+            if (creditScore < 600)
+            {
+                userQualifies = false;
+                Console.WriteLine("Credit score of " + creditScore + " is too low");
+            }
+            else if (creditScore < 700 && creditScore >= 600 && loanAmount < 10000)
+            {
+                Console.WriteLine("Credit score is enough for loan amount");
+            }
+            else if (creditScore >= 700)
+            {
+                Console.WriteLine("Credit score is enough for loan amount");
+            }
+            else 
+            {
+                userQualifies = false;
+                Console.WriteLine("Credit score of " + creditScore + " is too low for loan amount");
+            }
         }
 
         public void CheckAmountRequested(int loanAmount)
         {
-            throw new NotImplementedException();
+            if (loanAmount >= 2000 && loanAmount <= 30000)
+            {
+                Console.WriteLine("Loan amount approved");
+            }
+            else 
+            {
+                Console.WriteLine("Loan amount not approved. Must be $2000 - $30,000");
+                userQualifies = false;
+            }
         }
 
         public void CheckYearlyNetIncome(int incomeAmount, string howOftenPaid)
         {
-            throw new NotImplementedException();
+            int yearlyIncome = 0;
+            string howOftenPaidU = null;
+            howOftenPaidU = howOftenPaid.ToUpper();
+            switch (howOftenPaidU) 
+            {
+                case "BW":
+                    yearlyIncome = ((52 * incomeAmount) / 2);
+                    break;
+                case "M":
+                    yearlyIncome = (12 * incomeAmount);
+                    break;
+                case "W":
+                    yearlyIncome = (52 * incomeAmount);
+                    break;
+                case "Y":
+                    yearlyIncome = incomeAmount;
+                    break;
+                default:
+                    Console.WriteLine("Incorrect value entered");
+                    break;
+            }
+
+            if (yearlyIncome < 45000)
+            {
+                Console.WriteLine("Yearly income is too low");
+                userQualifies = false;
+            }
+            else 
+            {
+                Console.WriteLine("Yearly income is good");
+            }
         }
 
-        public bool isQualifiedForLoan()
+        public bool isQualifiedForLoan(int loanAmount)
         {
-            throw new NotImplementedException();
+            if (userQualifies) 
+            {
+                Console.WriteLine("User qualifies for the loan amount requested");
+                Console.WriteLine("Approved loan amount: " + loanAmount);
+                return true;
+            }
+            Console.WriteLine("User does not qualify for the loan amount requested");
+            Console.WriteLine("Rejected loan amount: " + loanAmount);
+            return false;
         }
     }
 }

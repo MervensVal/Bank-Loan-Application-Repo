@@ -12,6 +12,6 @@ namespace Bank_Loan_Application
         void CheckAge(DateTime DOB);
         void CheckYearlyNetIncome(int incomeAmount, string howOften);
         void CheckCreditScore(int loanAmount, int creditScore);
-        bool isQualifiedForLoan();
+        bool isQualifiedForLoan(int loanAmount);
     }
 }
