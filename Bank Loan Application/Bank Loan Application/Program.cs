@@ -6,8 +6,35 @@ namespace Bank_Loan_Application
     {
         static void Main(string[] args)
         {
+            try
+            {
+                BankLoanEligibilityCheck();
+            }
+            catch (Exception e) 
+            {
+                Console.WriteLine("Incorrect data entered");
+                Console.WriteLine("----------------------------------");
+                Console.WriteLine(e);
+            }
+        }
 
-            Menu();
+        public static void BankLoanEligibilityCheck() 
+        {
+            bool canContinueLoop = true;
+            string continueLoop;
+
+            while (canContinueLoop)
+            {
+                Menu();
+
+                Console.WriteLine("Would you like to continue for next applicant? (Y or N)");
+                continueLoop = (Console.ReadLine()).ToUpper();
+                if (continueLoop == "N")
+                {
+                    canContinueLoop = false;
+                }
+            }
+            Console.WriteLine("Bank Loan App ended by user");
         }
 
         public static void Menu() 
@@ -20,10 +47,11 @@ namespace Bank_Loan_Application
             int income;
             int creditScore;
             string howOftenPaidU;
-
             hasExistingLoan = true;
 
             EligibilityCheck userECheck = new EligibilityCheck();
+
+
 
             Console.WriteLine("Welcome to the Loan App!");
             Console.WriteLine("To determine eligibility please complete the form");
@@ -41,14 +69,16 @@ namespace Bank_Loan_Application
                 case "N":
                     hasExistingLoan = false;
                     break;
+                default:
+                    Console.WriteLine("incorrect user input");
+                    break;
             }
 
-            if (hasExistingLoan)
+            if (hasExistingLoan == true && hasExistingLoanStr == "Y")
             {
                 Console.WriteLine("Applicant does not qualify. Only one loan can be open at one time per Applicant ");
-                //break;
             }
-            else
+            else if(hasExistingLoan == false && hasExistingLoanStr == "N")
             {
                 Console.WriteLine("Applicant Date of Birth: ");
                 checkAge = Convert.ToDateTime(Console.ReadLine());
@@ -67,10 +97,24 @@ namespace Bank_Loan_Application
                 Console.WriteLine("Credit score:  ");
                 creditScore = Convert.ToInt32(Console.ReadLine());
 
+                Console.WriteLine("-------------------------------------");
+                Console.WriteLine("");
                 userECheck.CheckAge(checkAge);
+
+                Console.WriteLine("-------------------------------------");
+                Console.WriteLine("");
                 userECheck.CheckAmountRequested(loanAmount);
+
+                Console.WriteLine("-------------------------------------");
+                Console.WriteLine("");
                 userECheck.CheckYearlyNetIncome(income, howOftenPaidU);
+
+                Console.WriteLine("-------------------------------------");
+                Console.WriteLine("");
                 userECheck.CheckCreditScore(income, creditScore);
+
+                Console.WriteLine("-------------------------------------");
+                Console.WriteLine("");
                 userECheck.isQualifiedForLoan(loanAmount);
             }   
         }

@@ -40,11 +40,11 @@ namespace Bank_Loan_Application
             }
             else if (creditScore < 700 && creditScore >= 600 && loanAmount < 10000)
             {
-                Console.WriteLine("Credit score is enough for loan amount");
+                Console.WriteLine("Credit score is good");
             }
             else if (creditScore >= 700)
             {
-                Console.WriteLine("Credit score is enough for loan amount");
+                Console.WriteLine("Credit score is good");
             }
             else 
             {
@@ -57,7 +57,7 @@ namespace Bank_Loan_Application
         {
             if (loanAmount >= 2000 && loanAmount <= 30000)
             {
-                Console.WriteLine("Loan amount approved");
+                Console.WriteLine("Loan is good");
             }
             else 
             {
@@ -115,3 +115,4 @@ namespace Bank_Loan_Application
         }
     }
 }
+
