@@ -17,14 +17,16 @@ namespace Bank_Loan_Application
         {
             int currentAge;
             DateTime currentDate = DateTime.Today;
-            currentAge = (currentDate.Year - DOB.Year)-1;
+            currentAge = (currentDate.Year - DOB.Year) - 1;
             if (currentAge >= 18)
             {
+                Console.WriteLine("");
                 Console.WriteLine("Applicant age: " + currentAge + "years old");
                 Console.WriteLine("Applicant is old enough");
             }
-            else 
+            else
             {
+                Console.WriteLine("");
                 Console.WriteLine("Applicant age: " + currentAge + "years old");
                 Console.WriteLine("Applicant is NOT old enough");
                 userQualifies = false;
@@ -36,19 +38,23 @@ namespace Bank_Loan_Application
             if (creditScore < 600)
             {
                 userQualifies = false;
+                Console.WriteLine("");
                 Console.WriteLine("Credit score of " + creditScore + " is too low");
             }
             else if (creditScore < 700 && creditScore >= 600 && loanAmount < 10000)
             {
+                Console.WriteLine("");
                 Console.WriteLine("Credit score is good");
             }
             else if (creditScore >= 700)
             {
+                Console.WriteLine("");
                 Console.WriteLine("Credit score is good");
             }
-            else 
+            else
             {
                 userQualifies = false;
+                Console.WriteLine("");
                 Console.WriteLine("Credit score of " + creditScore + " is too low for loan amount");
             }
         }
@@ -57,10 +63,12 @@ namespace Bank_Loan_Application
         {
             if (loanAmount >= 2000 && loanAmount <= 30000)
             {
+                Console.WriteLine("");
                 Console.WriteLine("Loan is good");
             }
-            else 
+            else
             {
+                Console.WriteLine("");
                 Console.WriteLine("Loan amount not approved. Must be $2000 - $30,000");
                 userQualifies = false;
             }
@@ -71,7 +79,7 @@ namespace Bank_Loan_Application
             int yearlyIncome = 0;
             string howOftenPaidU = null;
             howOftenPaidU = howOftenPaid.ToUpper();
-            switch (howOftenPaidU) 
+            switch (howOftenPaidU)
             {
                 case "BW":
                     yearlyIncome = ((52 * incomeAmount) / 2);
@@ -86,29 +94,34 @@ namespace Bank_Loan_Application
                     yearlyIncome = incomeAmount;
                     break;
                 default:
+                    Console.WriteLine("");
                     Console.WriteLine("Incorrect value entered");
                     break;
             }
 
             if (yearlyIncome < 45000)
             {
+                Console.WriteLine("");
                 Console.WriteLine("Yearly income is too low");
                 userQualifies = false;
             }
-            else 
+            else
             {
+                Console.WriteLine("");
                 Console.WriteLine("Yearly income is good");
             }
         }
 
         public bool isQualifiedForLoan(int loanAmount)
         {
-            if (userQualifies) 
+            if (userQualifies)
             {
+                Console.WriteLine("");
                 Console.WriteLine("User qualifies for the loan amount requested");
                 Console.WriteLine("Approved loan amount: " + loanAmount);
                 return true;
             }
+            Console.WriteLine("");
             Console.WriteLine("User does not qualify for the loan amount requested");
             Console.WriteLine("Rejected loan amount: " + loanAmount);
             return false;
