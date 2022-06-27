@@ -140,7 +140,17 @@ namespace Bank_Loan_Application
 
                 Console.WriteLine("-------------------------------------");
                 Console.WriteLine("");
-                userECheck.isQualifiedForLoan(loanAmount);
+                switch (userECheck.isQualifiedForLoan(loanAmount)) 
+                {
+                    case true:
+                        Console.WriteLine("-------------------------------------");
+                        Console.WriteLine("");
+                        userECheck.calculateInterest(creditScore);
+                        break;
+                    case false:
+                        break;
+                }
+
             }
         }
     }

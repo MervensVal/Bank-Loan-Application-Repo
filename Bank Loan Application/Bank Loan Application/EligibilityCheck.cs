@@ -21,13 +21,13 @@ namespace Bank_Loan_Application
             if (currentAge >= 18)
             {
                 Console.WriteLine("");
-                Console.WriteLine("Applicant age: " + currentAge + "years old");
+                Console.WriteLine("Applicant age: " + currentAge + " years old");
                 Console.WriteLine("Applicant is old enough");
             }
             else
             {
                 Console.WriteLine("");
-                Console.WriteLine("Applicant age: " + currentAge + "years old");
+                Console.WriteLine("Applicant age: " + currentAge + " years old");
                 Console.WriteLine("Applicant is NOT old enough");
                 userQualifies = false;
             }
@@ -64,7 +64,7 @@ namespace Bank_Loan_Application
             if (loanAmount >= 2000 && loanAmount <= 30000)
             {
                 Console.WriteLine("");
-                Console.WriteLine("Loan is good");
+                Console.WriteLine("Loan amount is good");
             }
             else
             {
@@ -121,10 +121,48 @@ namespace Bank_Loan_Application
                 Console.WriteLine("Approved loan amount: " + loanAmount);
                 return true;
             }
-            Console.WriteLine("");
-            Console.WriteLine("User does not qualify for the loan amount requested");
-            Console.WriteLine("Rejected loan amount: " + loanAmount);
-            return false;
+            else
+            {
+                Console.WriteLine("");
+                Console.WriteLine("User does not qualify for the loan amount requested");
+                Console.WriteLine("Rejected loan amount: " + loanAmount);
+                return false;
+            }
+        }
+
+        public void calculateInterest(int creditScore)
+        {
+            int interestRate;
+
+            if (creditScore >= 600 && creditScore < 650)
+            {
+                interestRate = 20;
+                Console.WriteLine("");
+                Console.WriteLine("Your interest rate will be " + interestRate + "%");
+            }
+            else if (creditScore >= 650 && creditScore < 700)
+            {
+                interestRate = 15;
+                Console.WriteLine("");
+                Console.WriteLine("Interest rate will be " + interestRate + "%");
+            }
+            else if (creditScore >= 700 && creditScore < 750)
+            {
+                interestRate = 10;
+                Console.WriteLine("");
+                Console.WriteLine("Interest rate will be " + interestRate + "%");
+            }
+            else if (creditScore >= 700)
+            {
+                interestRate = 5;
+                Console.WriteLine("");
+                Console.WriteLine("Interest rate will be " + interestRate + "%");
+            }
+            else 
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Credit score is too low for loan");
+            }
         }
     }
 }
