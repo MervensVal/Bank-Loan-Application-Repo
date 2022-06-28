@@ -101,6 +101,7 @@ namespace Bank_Loan_Application
             {
                 Console.WriteLine("");
                 Console.WriteLine("Applicant Date of Birth: ");
+
                 checkAge = Convert.ToDateTime(Console.ReadLine());
 
                 Console.WriteLine("");
@@ -150,6 +151,8 @@ namespace Bank_Loan_Application
                     case false:
                         break;
                 }
+
+                userECheck.saveToDB();
 
             }
         }

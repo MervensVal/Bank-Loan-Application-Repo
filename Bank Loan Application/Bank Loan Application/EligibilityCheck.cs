@@ -3,18 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Bank_Loan_Application
 {
     class EligibilityCheck : IElegibilityCheck
     {
         private bool userQualifies = true;
+
+        public int Name { get; set; }
+        public DateTime DOB { get; set; }
+        public int LoanAmount { get; set; }
+        public int YearlyIncome { get; set; }
+        public int CreditScore { get; set; }
+        public int Interest { get; set; }
+
         public EligibilityCheck()
         {
 
         }
         public void CheckAge(DateTime DOB)
         {
+            this.DOB = DOB;
             int currentAge;
             DateTime currentDate = DateTime.Today;
             currentAge = (currentDate.Year - DOB.Year) - 1;
@@ -35,6 +45,8 @@ namespace Bank_Loan_Application
 
         public void CheckCreditScore(int loanAmount, int creditScore)
         {
+            this.CreditScore = creditScore;
+            this.LoanAmount = loanAmount;
             if (creditScore < 600)
             {
                 userQualifies = false;
@@ -83,15 +95,19 @@ namespace Bank_Loan_Application
             {
                 case "BW":
                     yearlyIncome = ((52 * incomeAmount) / 2);
+                    this.YearlyIncome = ((52 * incomeAmount) / 2);
                     break;
                 case "M":
                     yearlyIncome = (12 * incomeAmount);
+                    this.YearlyIncome = (12 * incomeAmount);
                     break;
                 case "W":
                     yearlyIncome = (52 * incomeAmount);
+                    this.YearlyIncome = (52 * incomeAmount);
                     break;
                 case "Y":
                     yearlyIncome = incomeAmount;
+                    this.YearlyIncome = incomeAmount;
                     break;
                 default:
                     Console.WriteLine("");
@@ -136,6 +152,7 @@ namespace Bank_Loan_Application
 
             if (creditScore >= 600 && creditScore < 650)
             {
+                this.Interest = 20;
                 interestRate = 20;
                 Console.WriteLine("");
                 Console.WriteLine("Your interest rate will be " + interestRate + "%");
@@ -148,12 +165,14 @@ namespace Bank_Loan_Application
             }
             else if (creditScore >= 700 && creditScore < 750)
             {
+                this.Interest = 10;
                 interestRate = 10;
                 Console.WriteLine("");
                 Console.WriteLine("Interest rate will be " + interestRate + "%");
             }
             else if (creditScore >= 700)
             {
+                this.Interest = 5;
                 interestRate = 5;
                 Console.WriteLine("");
                 Console.WriteLine("Interest rate will be " + interestRate + "%");
@@ -163,6 +182,19 @@ namespace Bank_Loan_Application
                 Console.WriteLine("");
                 Console.WriteLine("Credit score is too low for loan");
             }
+        }
+
+        public void saveToDB() 
+        {
+            StreamWriter sw = new StreamWriter(@"C:\Users\valme\Desktop\Loan_Info\LoanTextFileStorage.txt");
+            sw.WriteLine("-------------------");
+            sw.WriteLine("Name: " + "John");
+            sw.WriteLine("Date of Birth: " + DOB);
+            sw.WriteLine("Loan Amount: " + LoanAmount);
+            sw.WriteLine("Yearly Income: " + YearlyIncome);
+            sw.WriteLine("Credit Score: " + CreditScore);
+            sw.WriteLine("Interest: " + Interest);
+            sw.Close();
         }
     }
 }
