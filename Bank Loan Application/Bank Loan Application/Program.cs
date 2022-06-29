@@ -13,26 +13,34 @@ namespace Bank_Loan_Application
         public static void BankLoanEligibilityCheck()
         {
             bool canContinueLoop = true;
-            string continueLoop;
+            string selection;
 
             while (canContinueLoop)
             {
                 try
                 {
                     Console.WriteLine("");
-                    Console.WriteLine("Check new applicant eligibility for loan? (Y or N)");
-                    continueLoop = (Console.ReadLine()).ToUpper();
+                    Console.WriteLine(" 1) Start loan application");
+                    Console.WriteLine(" 2) Get list of applicants (from file)");
+                    Console.WriteLine(" 0) Close program");
+
+                    selection = Console.ReadLine();
                     Console.WriteLine("");
 
-                    if (continueLoop == "N")
+                    if (selection == "0")
                     {
                         canContinueLoop = false;
                         Console.WriteLine("Bank Loan App ended by user");
                         Console.WriteLine("");
                     }
-                    else if (continueLoop == "Y")
+                    else if (selection == "1")
                     {
-                        Menu();
+                        eligibilityMenu();
+                    }
+                    else if (selection == "2")
+                    {
+                        EligibilityCheck userECheck = new EligibilityCheck();
+                        userECheck.readFile();
                     }
                     else 
                     {
@@ -53,7 +61,7 @@ namespace Bank_Loan_Application
             }
         }
 
-        public static void Menu()
+        public static void eligibilityMenu()
         {
             bool hasExistingLoan;
             string hasExistingLoanStr;
@@ -64,6 +72,7 @@ namespace Bank_Loan_Application
             int creditScore;
             string howOftenPaidU;
             hasExistingLoan = true;
+            string acceptsLoan;
 
             EligibilityCheck userECheck = new EligibilityCheck();
 
@@ -99,9 +108,17 @@ namespace Bank_Loan_Application
             }
             else if (hasExistingLoan == false && hasExistingLoanStr == "N")
             {
+
+                Console.WriteLine("");
+                Console.WriteLine("Applicant fist and last name: ");
+                userECheck.Name = Console.ReadLine();
+
+                Console.WriteLine("");
+                Console.WriteLine("Applicant email: ");
+                userECheck.Email = Console.ReadLine();
+
                 Console.WriteLine("");
                 Console.WriteLine("Applicant Date of Birth: ");
-
                 checkAge = Convert.ToDateTime(Console.ReadLine());
 
                 Console.WriteLine("");
@@ -147,13 +164,20 @@ namespace Bank_Loan_Application
                         Console.WriteLine("-------------------------------------");
                         Console.WriteLine("");
                         userECheck.calculateInterest(creditScore);
+                        Console.WriteLine("-------------------------------------");
+                        Console.WriteLine("");
+                        Console.WriteLine("Does applicant accept loan? (Y ot N):  ");
+                        acceptsLoan = Console.ReadLine();
+                        if (acceptsLoan == "Y" || acceptsLoan == "y")
+                        {
+                            Console.WriteLine("Thank you for chosing us. We have saved your application");
+                            Console.WriteLine("An agent will reach out to applicant once background check is completed");
+                            userECheck.saveToFile();
+                        }
                         break;
                     case false:
                         break;
                 }
-
-                userECheck.saveToDB();
-
             }
         }
     }

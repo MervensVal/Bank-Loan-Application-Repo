@@ -9,15 +9,16 @@ namespace Bank_Loan_Application
 {
     class EligibilityCheck : IElegibilityCheck
     {
-        private bool userQualifies = true;
+        string file = @"C:\Users\valme\Desktop\Loan_Info\LoanTextFileStorage.txt";
 
-        public int Name { get; set; }
+        private bool userQualifies = true;
+        public string Name { get; set; }
+        public string Email { get; set; }
         public DateTime DOB { get; set; }
         public int LoanAmount { get; set; }
         public int YearlyIncome { get; set; }
         public int CreditScore { get; set; }
-        public int Interest { get; set; }
-
+        public int Interest { get; set; } 
         public EligibilityCheck()
         {
 
@@ -184,17 +185,28 @@ namespace Bank_Loan_Application
             }
         }
 
-        public void saveToDB() 
+        public void saveToFile() 
         {
-            StreamWriter sw = new StreamWriter(@"C:\Users\valme\Desktop\Loan_Info\LoanTextFileStorage.txt");
+            StreamWriter sw = new StreamWriter(file, true);
+
             sw.WriteLine("-------------------");
-            sw.WriteLine("Name: " + "John");
+            sw.WriteLine("Name: " + Name);
+            sw.WriteLine("Email: " + Email);
             sw.WriteLine("Date of Birth: " + DOB);
             sw.WriteLine("Loan Amount: " + LoanAmount);
             sw.WriteLine("Yearly Income: " + YearlyIncome);
             sw.WriteLine("Credit Score: " + CreditScore);
             sw.WriteLine("Interest: " + Interest);
             sw.Close();
+        }
+
+        public void readFile() 
+        {
+            Console.WriteLine("---------------------");
+            Console.WriteLine("Applicants saved in file: ");
+            StreamReader sr = new StreamReader(file);
+            Console.WriteLine(sr.ReadToEnd());
+            sr.Close();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Bank_Loan_Application
         void CheckCreditScore(int loanAmount, int creditScore);
         bool isQualifiedForLoan(int loanAmount);
         void calculateInterest(int creditScore);
-        void saveToDB();
+        void saveToFile();
+        void readFile();
     }
 }
