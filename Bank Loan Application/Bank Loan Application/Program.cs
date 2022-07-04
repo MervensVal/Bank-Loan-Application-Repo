@@ -14,14 +14,19 @@ namespace Bank_Loan_Application
         {
             bool canContinueLoop = true;
             string selection;
+            int applicationNum;
+            string passedBackroundCheck;
 
             while (canContinueLoop)
             {
                 try
                 {
                     Console.WriteLine("");
-                    Console.WriteLine(" 1) Start loan application");
+                    Console.WriteLine(" 1) Start new loan application");
                     Console.WriteLine(" 2) Get list of applicants (from file)");
+                    Console.WriteLine(" 3) Get list of applicants (from database)");
+                    Console.WriteLine(" 4) Find application");
+                    Console.WriteLine(" 5) Update backround check info");
                     Console.WriteLine(" 0) Close program");
 
                     selection = Console.ReadLine();
@@ -41,6 +46,27 @@ namespace Bank_Loan_Application
                     {
                         EligibilityCheck userECheck = new EligibilityCheck();
                         userECheck.readFile();
+                    }
+                    else if (selection == "3")
+                    {
+                        EligibilityCheck userECheck = new EligibilityCheck();
+                        userECheck.readDBData();
+                    }
+                    else if (selection == "4")
+                    {
+                        Console.WriteLine("Enter application number to find: ");
+                        applicationNum = Convert.ToInt32((Console.ReadLine()));
+                        EligibilityCheck userECheck = new EligibilityCheck();
+                        userECheck.FindApplicationFromDB(applicationNum);
+                    }
+                    else if (selection == "5")
+                    {
+                        Console.WriteLine("Enter application number to find: ");
+                        applicationNum = Convert.ToInt32((Console.ReadLine()));
+                        Console.WriteLine("Did user pass backround check (Y or N): ");
+                        passedBackroundCheck = Console.ReadLine();
+                        EligibilityCheck userECheck = new EligibilityCheck();
+                        userECheck.UpdateBackroundCheck(applicationNum, passedBackroundCheck);
                     }
                     else 
                     {
@@ -122,6 +148,10 @@ namespace Bank_Loan_Application
                 checkAge = Convert.ToDateTime(Console.ReadLine());
 
                 Console.WriteLine("");
+                Console.WriteLine("Applicant Social Security #: ");
+                userECheck.SSN = Console.ReadLine();
+
+                Console.WriteLine("");
                 Console.WriteLine("Loan amount requested (Only $2000 - $30,000): ");
                 loanAmount = Convert.ToInt32(Console.ReadLine());
 
@@ -173,6 +203,7 @@ namespace Bank_Loan_Application
                             Console.WriteLine("Thank you for chosing us. We have saved your application");
                             Console.WriteLine("An agent will reach out to applicant once background check is completed");
                             userECheck.saveToFile();
+                            userECheck.saveToDB();
                         }
                         break;
                     case false:

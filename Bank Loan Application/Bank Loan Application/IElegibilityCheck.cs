@@ -16,5 +16,11 @@ namespace Bank_Loan_Application
         void calculateInterest(int creditScore);
         void saveToFile();
         void readFile();
+        void saveToDB();
+        void readDBData();
+        void FindApplicationFromDB(int applicationNum);
+        void UpdateBackroundCheck(int applicationNum, string passedBackroundCheck);
+
+
     }
 }
