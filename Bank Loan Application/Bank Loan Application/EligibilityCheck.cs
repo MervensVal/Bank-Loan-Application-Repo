@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace Bank_Loan_Application
 {
@@ -330,6 +331,32 @@ namespace Bank_Loan_Application
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+            }
+        }
+
+        public void CheckEmail(string email)
+        {
+            string pattern = @"^[a-z]+([1-9]{1})?@[a-z]+\.[a-z]{3}$";
+
+            Regex regex = new Regex(pattern);
+
+            if (!(regex.IsMatch(email)))
+            {
+                userQualifies = "No";
+                Console.WriteLine("Email format incorrect");
+            }
+        }
+
+        public void CheckSSN(string ssn)
+        {
+            string pattern = @"^[0-9]{1}[1-9]{8}$";
+
+            Regex regex = new Regex(pattern);
+
+            if (!(regex.IsMatch(ssn)))
+            {
+                userQualifies = "No";
+                Console.WriteLine("Social security number format incorrect");
             }
         }
     }

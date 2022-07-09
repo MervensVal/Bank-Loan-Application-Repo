@@ -27,7 +27,7 @@ LoanAmount INT NOT NULL,
 YearlyIncome INT NOT NULL,
 CreditScore INT NOT NULL,
 Interest INT NOT NULL,
-PassedBackroundCheck varchar(5);
+PassedBackroundCheck varchar(5));
 
 ----------------------------------------------------------------------------------------
 BEGIN TRAN

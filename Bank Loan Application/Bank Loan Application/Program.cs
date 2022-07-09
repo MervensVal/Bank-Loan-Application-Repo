@@ -142,6 +142,7 @@ namespace Bank_Loan_Application
                 Console.WriteLine("");
                 Console.WriteLine("Applicant email: ");
                 userECheck.Email = Console.ReadLine();
+                userECheck.CheckEmail(userECheck.Email);
 
                 Console.WriteLine("");
                 Console.WriteLine("Applicant Date of Birth: ");
@@ -150,6 +151,7 @@ namespace Bank_Loan_Application
                 Console.WriteLine("");
                 Console.WriteLine("Applicant Social Security #: ");
                 userECheck.SSN = Console.ReadLine();
+                userECheck.CheckSSN(userECheck.SSN);
 
                 Console.WriteLine("");
                 Console.WriteLine("Loan amount requested (Only $2000 - $30,000): ");

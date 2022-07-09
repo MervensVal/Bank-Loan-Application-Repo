@@ -21,6 +21,7 @@ namespace Bank_Loan_Application
         void FindApplicationFromDB(int applicationNum);
         void UpdateBackroundCheck(int applicationNum, string passedBackroundCheck);
 
-
+        void CheckEmail(string email);
+        void CheckSSN(string ssn);
     }
 }
